@@ -21,8 +21,7 @@ public class ActivityTwo extends Activity {
 
 	// Lifecycle counters
 
-	// TODO:
-	// Create variables named 	
+	// Create variables named
 	// mCreate, mRestart, mStart and mResume 	
 	// to count calls to onCreate(), onRestart(), onStart() and
 	// onResume(). These variables should not be defined as static.
@@ -34,7 +33,6 @@ public class ActivityTwo extends Activity {
     private int mResume = 0;
     private int mRestart = 0;
 
-	// TODO: Create variables for each of the TextViews
 	// named  mTvCreate, mTvRestart, mTvStart, mTvResume.
 	// for displaying the current count of each counter variable
     private TextView mTvCreate;
@@ -47,7 +45,6 @@ public class ActivityTwo extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_two);
 
-		// TODO: Assign the appropriate TextViews to the TextView variables
 		// Hint: Access the TextView by calling Activity's findViewById()
 		// textView1 = (TextView) findViewById(R.id.textView1);
         mTvCreate = (TextView) findViewById(R.id.create);
@@ -65,33 +62,26 @@ public class ActivityTwo extends Activity {
 			@Override
 			public void onClick(View v) {
 
-				// TODO:
 				// This function closes Activity Two
 				// Hint: use Context's finish() method
-
-				
-			
+                finish();
 			}
 		});
 
 		// Has previous state been saved?
 		if (savedInstanceState != null) {
 
-			// TODO:
 			// Restore value of counters from saved state
 			// Only need 4 lines of code, one for every count variable
-
-
-			
-			
-			
-			
+            mCreate = savedInstanceState.getInt("mCreate");
+            mStart = savedInstanceState.getInt("mStart");
+            mRestart = savedInstanceState.getInt("mRestart");
+            mResume = savedInstanceState.getInt("mResume");
 		}
 
 		// Emit LogCat message
 		Log.i(TAG, "Entered the onCreate() method");
 
-		// TODO:
 		// Update the appropriate count variable
 		// Update the user interface via the displayCounts() method
         mCreate++;
@@ -107,7 +97,6 @@ public class ActivityTwo extends Activity {
 		// Emit LogCat message
 		Log.i(TAG, "Entered the onStart() method");
 
-		// TODO:
 		// Update the appropriate count variable
 		// Update the user interface
         mStart++;
@@ -121,7 +110,6 @@ public class ActivityTwo extends Activity {
 		// Emit LogCat message
 		Log.i(TAG, "Entered the onResume() method");
 
-		// TODO:
 		// Update the appropriate count variable
 		// Update the user interface
         mResume++;
@@ -151,7 +139,6 @@ public class ActivityTwo extends Activity {
 		// Emit LogCat message
 		Log.i(TAG, "Entered the onRestart() method");
 
-		// TODO:
 		// Update the appropriate count variable
 		// Update the user interface
         mRestart++;
@@ -169,16 +156,12 @@ public class ActivityTwo extends Activity {
 	@Override
 	public void onSaveInstanceState(Bundle savedInstanceState) {
 
-		// TODO:
 		// Save counter state information with a collection of key-value pairs
 		// 4 lines of code, one for every count variable
-
-
-
-		
-		
-		
-		
+        savedInstanceState.putInt("mCreate", mCreate);
+        savedInstanceState.putInt("mStart", mStart);
+        savedInstanceState.putInt("mRestart", mRestart);
+        savedInstanceState.putInt("mResume", mResume);
 	}
 
 	// Updates the displayed counters
